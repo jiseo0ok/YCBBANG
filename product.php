@@ -67,7 +67,7 @@
    <div class="row" >
      <p style="text-align: center;">
      <h2 class="obj1" id="s1">PRODUCT</span></p>
-      <span class="obj2" id="s1">그쪽도 YC 빵을 아세요?!</span>
+      <span class="obj2" id="s1">그쪽도 YC 빵을 아시는지</span>
    
   
      </div>
@@ -110,8 +110,8 @@
     }
 
     // 데이터베이스에서 정보 가져오기
-	$sql = "SELECT breadname, breadcontent, breadmoney, breadphoto FROM bread ORDER BY breadtime DESC LIMIT 5;";
-	$result = $conn->query($sql);
+    $sql = "SELECT breadname, breadcontent, breadmoney, breadphoto FROM bread"; // your_table_name을 실제 테이블 이름으로 변경해야 합니다.
+    $result = $conn->query($sql);
 
     if ($result->num_rows > 0) {
         while($row = $result->fetch_assoc()) {
