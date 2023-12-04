@@ -24,7 +24,7 @@
 // else
 // echo "<h1>연결실패ㅠ</h1>";
 
-$sql = "insert into kbread(uid,uname,uaddress,uphone,upass) values('$uid', '$uname','$uaddress,'$uphone','$upass')";
+$sql = "insert into kbread(uid,uname,uaddress,uphone,upass) values('$uid', '$uname','$uaddress','$uphone','$upass')";
 //2. 쿼리 날리기(테이블에 있는 모든 데이터 가지고 오기)
     mysqli_query($conn, $sql); 
     
