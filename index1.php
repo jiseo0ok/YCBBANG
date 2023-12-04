@@ -40,7 +40,15 @@
   
           
            
-          
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle text-dark" href="#" id="navbarScrollingDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              ORDER
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="navbarScrollingDropdown">
+              <li><a class="dropdown-item" href="order.html">주문하기</a></li>
+              
+            </ul>
+          </li>
         
         </ul>
         <ul class="navbar-nav">
@@ -61,6 +69,7 @@
 
           <div class="row" >
             <p style="text-align: center;">
+			
             <span class="obj1" id="s1">연암공과대학교</span><br>
             <span class="obj2"  id="s1">21960044</span><br>
             <span class="obj3" id="s1">3B 정지석</span>
