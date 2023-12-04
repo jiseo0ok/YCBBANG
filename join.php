@@ -37,4 +37,4 @@ $sql = "insert into kbread(uid,uname,uaddress,uphone,upass) values('$uid', '$una
   // echo $upass."<br>";
    
 ?>
-<meta http-equiv="refresh" content="0; url=list.php">
+<meta http-equiv="refresh" content="0; url=index.html">
