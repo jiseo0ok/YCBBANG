@@ -34,8 +34,8 @@
               PRODUCT
             </a>
             <ul class="dropdown-menu" aria-labelledby="navbarScrollingDropdown">
-              <li><a class="dropdown-item" href="new_product.html">신제품</a></li>
-              <li><a class="dropdown-item" href="#">모든제품</a></li>
+              <li><a class="dropdown-item" href="new_product.php">신제품</a></li>
+              <li><a class="dropdown-item" href="product.php">모든제품</a></li>
               
             </ul>
           </li>
@@ -81,7 +81,7 @@
     <div class="container category">
       <div class="row">
         <div class="col col1" id="new_product" style="font-family: 'GmarketSansLight'; cursor: pointer;" onclick="location.href='#';">
-          신제품
+          모든제품
         </div>
       </div>
     </div>

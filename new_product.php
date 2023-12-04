@@ -34,8 +34,8 @@
               PRODUCT
             </a>
             <ul class="dropdown-menu" aria-labelledby="navbarScrollingDropdown">
-              <li><a class="dropdown-item" href="new_product.html">신제품</a></li>
-              <li><a class="dropdown-item" href="#">모든제품</a></li>
+              <li><a class="dropdown-item" href="new_product.php">신제품</a></li>
+              <li><a class="dropdown-item" href="product.php">모든제품</a></li>
               
             </ul>
           </li>
