@@ -92,34 +92,58 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $breadPrices = $_POST['breadprice'];
         $quantities = $_POST['quantity'];
 		$totalPriceAll = 0; // 전체 총 가격 변수 초기화
+    $selectedBreadNames = []; // 빵 종류를 담을 빈 배열 초기화
+
+
         // 각 상품 정보 출력
 		echo '<h1>' . $_SESSION['userId'] . ' 님이 주문하신 빵 종류는 </h1>';
         for ($i = 0; $i < count($breadNames); $i++) {
+          
             $totalPrice = $breadPrices[$i] * $quantities[$i];
+            if($quantities[$i]!=0){
+              $selectedBreadNames[] = $breadNames[$i];
             echo "<p>상품명: " . $breadNames[$i] . ", 가격: " . $breadPrices[$i] . ", 수량: " . $quantities[$i] . ", 총 가격: " . $totalPrice . "</p>";
+          }
 			$totalPriceAll += $totalPrice; // 전체 총 가격 누적
 	   }
-		echo "<h1>이며, 전체 주문 총 가격은 " . $totalPriceAll . "</h1>";
+     $allSelectedBreadNames = implode(", ", $selectedBreadNames);
+
+		echo "<h1>선택하신 빵종류는 ". $allSelectedBreadNames . "이며, 전체 주문 총 가격은 " . $totalPriceAll . "</h1>";
      //이메일
-     $subject = "주문 내역";
-        
-     $message = "<h1>주문 내역</h1>";
-     $message .= "<p>주문 상품 목록:</p>";
-     for ($i = 0; $i < count($breadNames); $i++) {
-         $totalPrice = $breadPrices[$i] * $quantities[$i];
-         $message .= "<p>상품명: " . $breadNames[$i] . ", 가격: " . $breadPrices[$i] . ", 수량: " . $quantities[$i] . ", 총 가격: " . $totalPrice . "</p>";
-     }
+     $servername = "realbread.csjj47wsn6pa.us-east-1.rds.amazonaws.com"; // 데이터베이스 서버 이름
+     $username = "root"; // 데이터베이스 사용자명
+     $password = "rootroot"; // 데이터베이스 암호
+     $dbname = "bread"; // 사용할 데이터베이스 이름
 
-     $to = "sinship@naver.com"; // 받는 사람의 이메일 주소
-     $headers = "MIME-Version: 1.0" . "\r\n";
-     $headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
+// MySQL 연결 생성
+$conn = new mysqli($servername, $username, $password, $dbname);
 
-     // 이메일 보내기
-     if (mail($to, $subject, $message, $headers)) {
-         echo "주문 내역을 이메일로 전송했습니다.";
-     } else {
-         echo "이메일 전송에 실패했습니다.";
-     }
+// 연결 확인
+if ($conn->connect_error) {
+    die("연결 실패: " . $conn->connect_error);
+}
+$dd = $_SESSION["userId"];
+// 데이터베이스에서 정보 가져오기 (예시: SELECT)
+$sql = "SELECT uaddress FROM kbread WHERE uid = '$dd'";
+$result = $conn->query($sql);
+
+if ($result->num_rows > 0) {
+    // 가져온 데이터를 INSERT하기 (예시: INSERT)
+    while($row = $result->fetch_assoc()) {
+        $column1_value = $row["uaddress"];
+
+        // 가져온 데이터를 이용하여 INSERT 쿼리 실행
+        $insert_sql = "INSERT INTO orderd (uid, uaddress, kind, money) VALUES ('$dd', '$column1_value','$allSelectedBreadNames','$totalPriceAll')";
+        if ($conn->query($insert_sql) === TRUE) {
+            echo "새로운 레코드가 성공적으로 추가되었습니다.";
+        } else {
+            echo "Error: " . $insert_sql . "<br>" . $conn->error;
+        }
+    }
+} else {
+    echo "0개의 결과";
+}
+$conn->close();
 
     } else {
         echo "주문 정보가 올바르게 전달되지 않았습니다.";
