@@ -45,7 +45,7 @@
               ORDER
             </a>
             <ul class="dropdown-menu" aria-labelledby="navbarScrollingDropdown">
-              <li><a class="dropdown-item" href="order.html">주문하기</a></li>
+              <li><a class="dropdown-item" href="orderd.php">주문하기</a></li>
               
             </ul>
           </li>
@@ -58,7 +58,7 @@
           echo '<li> 안녕하세요' .  $_SESSION['userId'] . '님 </li>';}
           ?>
           
-        <a href="logout.php" id="Login"><img src="img/login.png" alt="" width="20px" style="margin-right: 10px;">Join</a>
+        <a href="logout.php" id="Login"><img src="img/login.png" alt="" width="20px" style="margin-right: 10px;">Logout</a>
          
         </ul> 
 
