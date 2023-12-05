@@ -24,19 +24,7 @@
       <div class="collapse navbar-collapse" id="navbarScroll">
         <ul class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll" style="--bs-scroll-height: 300px;">
     
-          <li class="nav-item dropdown">
-            
-          </li>
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle text-dark" href="#" id="navbarScrollingDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-              PRODUCT
-            </a>
-            <ul class="dropdown-menu" aria-labelledby="navbarScrollingDropdown">
-              <li><a class="dropdown-item" href="new_product.php">신제품</a></li>
-              <li><a class="dropdown-item" href="product.php">모든제품</a></li>
-              
-            </ul>
-          </li>
+          
   
           
            
@@ -55,7 +43,7 @@
           <?php 
           session_start();
           if (isset($_SESSION['userId'])) {
-          echo '<li> 안녕하세요' .  $_SESSION['userId'] . '님 </li>';}
+          echo '<li> 안녕하세요 ' .  $_SESSION['userId'] . ' 님 </li>';}
           ?>
           
         <a href="logout.php" id="Login"><img src="img/login.png" alt="" width="20px" style="margin-right: 10px;">Logout</a>

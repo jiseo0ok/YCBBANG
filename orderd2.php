@@ -29,16 +29,7 @@
       <ul class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll" style="--bs-scroll-height: 100px;">
   
        
-         <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle text-dark" href="#" id="navbarScrollingDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-              PRODUCT
-            </a>
-            <ul class="dropdown-menu" aria-labelledby="navbarScrollingDropdown">
-              <li><a class="dropdown-item" href="new_product.php">신제품</a></li>
-              <li><a class="dropdown-item" href="product.php">모든제품</a></li>
-              
-            </ul>
-          </li>
+         
         <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle text-dark" href="#" id="navbarScrollingDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
               ORDER
@@ -51,10 +42,8 @@
       
       </ul>
      <ul class="navbar-nav">
-          <a href="login.html" id="Login"><img src="img/enter.png" alt="" width="20px" style="margin-right: 10px;">Login</a>
-          <a href="join.html" id="Login"><img src="img/login.png" alt="" width="20px" style="margin-right: 10px;">Join</a>
-          <a href="list.php" id="Login"><img src="img/list.png" alt="" width="20px" style="margin-right: 10px;">List</a>
-          <a href="#" id="Login"><img src="img/shopping-cart.png" alt="" width="20px" style="margin-right: 10px;">Cart</a>
+		<a href="logout.php" id="Login"><img src="img/login.png" alt="" width="20px" style="margin-right: 10px;">Logout</a>
+        
          </ul> 
 
     </div>
@@ -80,7 +69,7 @@
     <div class="container category">
       <div class="row">
         <div class="col col1" id="new_product" style="font-family: 'GmarketSansLight'; cursor: pointer;" onclick="location.href='#';">
-          모든제품
+          주문결과
         </div>
       </div>
     </div>
@@ -88,24 +77,28 @@
     
     <div class="container text-center" id="con1">
       <div class="line"></div>
-      <h3 class="sub-title" style="font-family: 'KOTRA_BOLD-Bold';">모든제품</h3>
+      <h3 class="sub-title" style="font-family: 'KOTRA_BOLD-Bold';">주문결과는 데이터베이스에 전달됩니다.</h3>
 
 
 
       <div class="row">
 <?php
+session_start();
+         
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // POST 데이터에서 상품 정보 가져오기
     if (isset($_POST['breadname']) && isset($_POST['breadprice']) && isset($_POST['quantity'])) {
         $breadNames = $_POST['breadname'];
         $breadPrices = $_POST['breadprice'];
         $quantities = $_POST['quantity'];
-
+		$totalPriceAll = 0; // 전체 총 가격 변수 초기화
         // 각 상품 정보 출력
+		echo '<h1>' . $_SESSION['userId'] . ' 님이 주문하신 빵 종류는 </h1>';
         for ($i = 0; $i < count($breadNames); $i++) {
             $totalPrice = $breadPrices[$i] * $quantities[$i];
             echo "<p>상품명: " . $breadNames[$i] . ", 가격: " . $breadPrices[$i] . ", 수량: " . $quantities[$i] . ", 총 가격: " . $totalPrice . "</p>";
         }
+		echo "<h1>이며, 전체 주문 총 가격은 " . $totalPriceAll . "</h1>";
     } else {
         echo "주문 정보가 올바르게 전달되지 않았습니다.";
     }

@@ -29,16 +29,7 @@
       <ul class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll" style="--bs-scroll-height: 100px;">
   
        
-         <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle text-dark" href="#" id="navbarScrollingDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-              PRODUCT
-            </a>
-            <ul class="dropdown-menu" aria-labelledby="navbarScrollingDropdown">
-              <li><a class="dropdown-item" href="new_product.php">신제품</a></li>
-              <li><a class="dropdown-item" href="product.php">모든제품</a></li>
-              
-            </ul>
-          </li>
+         
         <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle text-dark" href="#" id="navbarScrollingDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
               ORDER
@@ -51,11 +42,10 @@
       
       </ul>
      <ul class="navbar-nav">
-          <a href="login.html" id="Login"><img src="img/enter.png" alt="" width="20px" style="margin-right: 10px;">Login</a>
-          <a href="join.html" id="Login"><img src="img/login.png" alt="" width="20px" style="margin-right: 10px;">Join</a>
-          <a href="list.php" id="Login"><img src="img/list.png" alt="" width="20px" style="margin-right: 10px;">List</a>
-          <a href="#" id="Login"><img src="img/shopping-cart.png" alt="" width="20px" style="margin-right: 10px;">Cart</a>
-         </ul> 
+          <a href="logout.php" id="Login"><img src="img/login.png" alt="" width="20px" style="margin-right: 10px;">Logout</a>
+        
+		  
+		  </ul> 
 
     </div>
   </div>
