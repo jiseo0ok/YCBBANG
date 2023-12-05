@@ -52,11 +52,15 @@
         
         </ul>
         <ul class="navbar-nav">
-          <a href="login.html" id="Login"><img src="img/enter.png" alt="" width="20px" style="margin-right: 10px;">Login</a>
-          <a href="join.html" id="Login"><img src="img/login.png" alt="" width="20px" style="margin-right: 10px;">Join</a>
-          <a href="list.php" id="Login"><img src="img/list.png" alt="" width="20px" style="margin-right: 10px;">List</a>
-          <a href="#" id="Login"><img src="img/shopping-cart.png" alt="" width="20px" style="margin-right: 10px;">Cart</a>
-         </ul> 
+          <?php 
+          session_start();
+          if (isset($_SESSION['userId'])) {
+          echo '<li> 안녕하세요' .  $_SESSION['userId'] . '님 </li>';}
+          ?>
+          
+        <a href="logout.php" id="Login"><img src="img/login.png" alt="" width="20px" style="margin-right: 10px;">Join</a>
+         
+        </ul> 
 
       </div>
     </div>

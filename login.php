@@ -24,9 +24,12 @@ if ($result->num_rows === 1) {
     $row = $result->fetch_assoc();
     // Verify password using password_verify() function if passwords are hashed
     if ($row['upass'] === $upass) {
-        // Start session and set user ID
-        // session_start();
-        // $_SESSION['userId'] = $row['uid'];
+
+        // 세션 시작
+        session_start();
+        // 사용자 ID 세션 변수 설정
+        $_SESSION['userId'] = $row['uid'];
+        
 ?>
         <script>
             alert("로그인에 성공하였습니다.");

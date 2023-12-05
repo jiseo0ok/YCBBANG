@@ -89,7 +89,7 @@
     
     <div class="container text-center" id="con1">
       <div class="line"></div>
-      <h3 class="sub-title" style="font-family: 'KOTRA_BOLD-Bold';">신제품</h3>
+      <h3 class="sub-title" style="font-family: 'KOTRA_BOLD-Bold';">모든제품</h3>
 
 
 
