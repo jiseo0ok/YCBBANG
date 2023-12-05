@@ -97,7 +97,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         for ($i = 0; $i < count($breadNames); $i++) {
             $totalPrice = $breadPrices[$i] * $quantities[$i];
             echo "<p>상품명: " . $breadNames[$i] . ", 가격: " . $breadPrices[$i] . ", 수량: " . $quantities[$i] . ", 총 가격: " . $totalPrice . "</p>";
-        }
+			$totalPriceAll += $totalPrice; // 전체 총 가격 누적
+	   }
 		echo "<h1>이며, 전체 주문 총 가격은 " . $totalPriceAll . "</h1>";
     } else {
         echo "주문 정보가 올바르게 전달되지 않았습니다.";
