@@ -116,7 +116,7 @@
             // 수량 선택을 위한 입력 필드
             echo '<input type="hidden" name="breadname[]" value="' . $row["breadname"] . '">';
             echo '<input type="hidden" name="breadprice[]" value="' . $row["breadmoney"] . '">';
-            echo '<input type="number" name="quantity[]" value="1" min="1">'; // 수량 입력 필드
+            echo '<input type="number" name="quantity[]" value="0" min="0">'; // 수량 입력 필드
 
             echo '</div>';
         }

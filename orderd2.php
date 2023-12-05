@@ -100,6 +100,27 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 			$totalPriceAll += $totalPrice; // 전체 총 가격 누적
 	   }
 		echo "<h1>이며, 전체 주문 총 가격은 " . $totalPriceAll . "</h1>";
+     //이메일
+     $subject = "주문 내역";
+        
+     $message = "<h1>주문 내역</h1>";
+     $message .= "<p>주문 상품 목록:</p>";
+     for ($i = 0; $i < count($breadNames); $i++) {
+         $totalPrice = $breadPrices[$i] * $quantities[$i];
+         $message .= "<p>상품명: " . $breadNames[$i] . ", 가격: " . $breadPrices[$i] . ", 수량: " . $quantities[$i] . ", 총 가격: " . $totalPrice . "</p>";
+     }
+
+     $to = "sinship@naver.com"; // 받는 사람의 이메일 주소
+     $headers = "MIME-Version: 1.0" . "\r\n";
+     $headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
+
+     // 이메일 보내기
+     if (mail($to, $subject, $message, $headers)) {
+         echo "주문 내역을 이메일로 전송했습니다.";
+     } else {
+         echo "이메일 전송에 실패했습니다.";
+     }
+
     } else {
         echo "주문 정보가 올바르게 전달되지 않았습니다.";
     }
